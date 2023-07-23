@@ -1,0 +1,6 @@
+@use '../variables' as variables;
+
+.navigation {
+    padding: 0 30px;
+    background-color: variables.$grey;
+}

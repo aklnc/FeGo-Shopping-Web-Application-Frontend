@@ -1,0 +1,37 @@
+$gutter: 16px;
+
+.gallery-2, .gallery-3, .gallery-4 {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 5px;
+    margin-left: calc(100% / 12 + $gutter);
+}
+
+.gallery-2 a {
+    max-width: calc(100% * 10 / 12 * 6 / 12);
+}
+
+.gallery-3 a {
+    max-width: calc(100% * 10 / 12 * 4 / 12);
+}
+
+.gallery-4 a {
+    max-width: calc(100% * 10 / 12 * 3 / 12);
+}
+
+.gallery-2 a img, .gallery-3 a img, .gallery-4 a img {
+    max-width: 100%;
+    margin: 5px;
+}
+
+@media only screen and (max-width: 800px) {
+    .gallery-2, .gallery-3, .gallery-4 {
+        margin-left: $gutter;
+    }
+
+    .gallery-2 a, .gallery-3 a, .gallery-4 a {
+        max-width: calc(100% - 2 * $gutter);
+    }
+}

@@ -1,0 +1,46 @@
+@use "../variables" as variables;
+
+// Variables
+$searchBarPadding: 10px;
+$gutter: 16px;
+
+.homepage {
+  .search-bar {
+    margin: 0 calc(100% / 12 - $searchBarPadding);
+    padding: $searchBarPadding;
+    width: calc(100% * 10 / 12);
+    text-align: center;
+    background-color: variables.$grey;
+
+    input {
+      margin: 0 10px;
+      border-radius: 12px;
+      border: 1px solid variables.$red !important;
+      padding: 5px;
+      width: calc(100% * 4 / 12);
+      &:focus {
+        outline: none;
+      }
+    }
+
+    i {
+      cursor: pointer;
+      color: variables.$red;
+    }
+  }
+
+  .homepage-heading {
+    margin: 30px calc(100% / 12);
+  }
+
+  @media only screen and (max-width: 800px) {
+    .search-bar {
+      margin: 0 $gutter;
+      width: calc(100% - 2 * $gutter);
+
+      input {
+        width: calc(100% * 3 / 5);
+      }
+    }
+  }
+}
