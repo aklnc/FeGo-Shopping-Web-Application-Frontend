@@ -1,0 +1,90 @@
+@use "../../variables" as variables;
+
+.product-container {
+  padding: 15px;
+
+  .product-name {
+    font-size: 1.3rem;
+    border-bottom: 1px solid variables.$yellow;
+  }
+
+  .seller {
+    margin-right: 10px;
+    color: variables.$green;
+    text-decoration: none;
+    &:visited {
+      color: variables.$green;
+    }
+  }
+
+  .interactions {
+    border: 1px solid variables.$yellow;
+    border-radius: 12px;
+    padding: 10px 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    .price {
+      font-size: 1.2rem;
+      color: variables.$red;
+    }
+    .buttons {
+      margin-left: auto;
+      margin-right: 0;
+      .heart-icon {
+        color: variables.$red;
+      }
+      .heart-icon,
+      .share-icon {
+        vertical-align: middle;
+        font-size: 1.3rem;
+        margin: 1em 0.5em;
+        cursor: pointer;
+      }
+      button {
+        padding: 0.6rem 1.3rem;
+        background-color: variables.$yellow;
+        border: 1px solid variables.$yellow;
+        border-radius: 12px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        &:hover {
+          filter: brightness(110%);
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 800px) {
+    padding: 7px;
+
+    .product-name {
+      padding-bottom: 5px;
+      font-size: 1rem;
+    }
+
+    .seller {
+      margin-right: 6px;
+    }
+
+    .interactions {
+      border: none;
+      padding: 3px 7px;
+      grid-template-columns: 0.7fr 1.3fr;
+      .price {
+        font-size: 1.1rem;
+      }
+      .buttons {
+        .heart-icon,
+        .share-icon {
+          vertical-align: middle;
+          font-size: 1.1rem;
+          margin: 1em 0.3em;
+        }
+        button {
+          padding: 0.3rem 0.7rem;
+          border-radius: 6px;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+@use "../variables" as variables;
+
+$image-container-padding: 5px;
+$gutter: 16px;
+
+.product-page {
+  margin-left: calc(100vw * 1 / 12);
+
+  .grid-layout {
+    display: grid;
+    grid-template-columns: calc(100vw * 5 / 12) calc(100vw * 5 / 12);
+  }
+
+  @media only screen and (max-width: 800px) {
+    margin-left: $gutter / 2;
+    .grid-layout {
+        display: grid;
+        grid-template-columns: calc(100vw - $gutter) ;
+      }
+  }
+}

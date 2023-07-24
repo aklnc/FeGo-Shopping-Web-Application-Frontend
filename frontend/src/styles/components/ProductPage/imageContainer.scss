@@ -1,0 +1,61 @@
+@use "../../variables" as variables;
+
+$image-container-padding: 5px;
+$gutter: 16px;
+
+.product-page {
+  .grid-layout {
+    .image-container {
+      border: 1px solid variables.$yellow;
+      padding: $image-container-padding;
+    }
+
+    .selected-image {
+      max-width: calc(100vw * 5 / 12 - 2 * $image-container-padding);
+      height: auto;
+    }
+  }
+
+  .other-images {
+    display: flex;
+    overflow: hidden;
+    border-top: 1px solid variables.$yellow;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+
+    .selected {
+      border: 1px solid variables.$yellow;
+    }
+
+    .image-navigators {
+      height: 100%;
+      text-align: center;
+      background-color: variables.$grey;
+      padding: 5px;
+      border-radius: 25%;
+      cursor: pointer;
+      p {
+        vertical-align: middle;
+      }
+    }
+
+    img {
+      max-width: calc(100vw * 1 / 12);
+      height: auto;
+      cursor: pointer;
+      transition: ease;
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    .grid-layout .selected-image {
+      max-width: calc(100vw - 2 * $image-container-padding - $gutter);
+      height: auto;
+    }
+    .other-images img {
+        max-width: calc(100vw * 1 / 5 - 2 * $image-container-padding - $gutter);
+        height: auto;
+    }
+  }
+}

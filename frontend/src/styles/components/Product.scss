@@ -1,0 +1,25 @@
+@use "../variables" as variables;
+
+.homepage-product {
+  a {
+    color: variables.$black;
+    text-decoration: none;
+    .product-name {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2; /* number of lines to show */
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+    .product-price {
+      color: variables.$red;
+    }
+    &:visited {
+      color: variables.$black;
+    }
+    &:hover {
+      border: 1px solid variables.$yellow;
+      border-radius: 12px;
+    }
+  }
+}

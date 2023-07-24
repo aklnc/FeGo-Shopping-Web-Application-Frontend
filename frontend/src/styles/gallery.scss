@@ -1,16 +1,32 @@
 $gutter: 16px;
+$padding: 5px;
 
 .gallery-2, .gallery-3, .gallery-4 {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    padding: 5px;
-    margin-left: calc(100% / 12 + $gutter);
+    padding: $padding;
+}
+
+.gallery-2 {
+    margin-left: calc(100vw / 12 + 2*$gutter + 4 * $padding);
+}
+
+.gallery-3 {
+    margin-left: calc(100vw / 12 + 2*$gutter + 6 * $padding);
+}
+
+.gallery-4 {
+    margin-left: calc(100vw / 12 + 2*$gutter + 8 * $padding);
 }
 
 .gallery-2 a {
     max-width: calc(100% * 10 / 12 * 6 / 12);
+}
+
+.gallery-2 a, .gallery-3 a, .gallery-4 a {
+    padding: $padding;
 }
 
 .gallery-3 a {
@@ -23,7 +39,6 @@ $gutter: 16px;
 
 .gallery-2 a img, .gallery-3 a img, .gallery-4 a img {
     max-width: 100%;
-    margin: 5px;
 }
 
 @media only screen and (max-width: 800px) {
@@ -32,6 +47,6 @@ $gutter: 16px;
     }
 
     .gallery-2 a, .gallery-3 a, .gallery-4 a {
-        max-width: calc(100% - 2 * $gutter);
+        max-width: calc(100% - $gutter);
     }
 }

@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
+
 import "../styles/pages/homepage.scss";
 
 // Components
-import ProductHomepage from "../components/ProductHomepage";
-import BrandHomepage from "../components/BrandHomepage";
+import HomepageProduct from "../components/Product";
+import HomepageSeller from "../components/Seller";
 
 const Homepage = () => {
   const FEATURED_PRODUCTS = [
@@ -71,7 +73,7 @@ const Homepage = () => {
       price: 30.12,
     },
   ];
-  const FEATURED_BRANDS = [
+  const FEATURED_sellerS = [
     {
       id: "bid01",
       category: "clothing",
@@ -130,17 +132,26 @@ const Homepage = () => {
       </div>
 
       <h2 className="homepage-heading">Featured Products</h2>
-      <div className="product-homepage gallery-4">
+      <div className="homepage-product gallery-4">
         {FEATURED_PRODUCTS.map((product) => (
-          <ProductHomepage key={`product ${product.id}`} product={product} />
+          <HomepageProduct key={`product ${product.id}`} product={product} />
         ))}
       </div>
 
-      <h2 className="homepage-heading">Featured Brands</h2>
-      <div className="brand-homepage gallery-2">
-        {FEATURED_BRANDS.map((brand) => (
-          <BrandHomepage key={`brand ${brand.id}`} brand={brand} />
+      <h2 className="homepage-heading">Featured sellers</h2>
+      <div className="homepage-seller gallery-2">
+        {FEATURED_sellerS.map((seller) => (
+          <HomepageSeller key={`seller ${seller.id}`} seller={seller} />
         ))}
+      </div>
+      <div className="help-center">
+        <h2>Help Center</h2>
+          <ul>
+            <Link to="/"><li><i className="fa-solid fa-arrow-right"></i> How can I return a product?</li></Link>
+            <Link to="/"><li><i className="fa-solid fa-arrow-right"></i> How can I have repaired in guarantee procedures?</li></Link>
+            <Link to="/"><li><i className="fa-solid fa-arrow-right"></i> Where is my product? Get your product location.</li></Link>
+            <Link to="/"><li><i className="fa-solid fa-arrow-right"></i> <b>Other complaints...</b></li></Link>
+          </ul>
       </div>
     </div>
   );
