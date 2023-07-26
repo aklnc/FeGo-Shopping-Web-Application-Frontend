@@ -6,6 +6,9 @@ import "../styles/pages/productPage.scss";
 import ImageContainer from "../components/ProductPage/ImageContainer";
 import ProductDetails from "../components/ProductPage/ProductDetails";
 import Details from "../components/ProductPage/Details";
+import Reviews from "../components/ProductPage/Reviews";
+import Properties from "../components/ProductPage/Properties";
+import AskToSeller from "../components/ProductPage/AskToSeller";
 
 const ProductPage = () => {
   // The pid will be used for fetch request
@@ -129,6 +132,7 @@ const ProductPage = () => {
         date: "June 3, 2023",
       },
     ],
+    asktoSellerTotal: 672,
   };
 
   return (
@@ -147,6 +151,9 @@ const ProductPage = () => {
           <Details details={PRODUCT.details} />
         </div>
       </div>
+      <Reviews reviews={PRODUCT.reviews} reviewMean={PRODUCT.reviewMean} />
+      <Properties properties={PRODUCT.properties} />
+      <AskToSeller questions={PRODUCT.askToSeller}  askToSellerTotal={PRODUCT.asktoSellerTotal}/>
     </div>
   );
 };

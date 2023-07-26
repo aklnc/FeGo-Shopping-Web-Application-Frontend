@@ -6,6 +6,13 @@ $gutter: 16px;
 .product-page {
   margin-left: calc(100vw * 1 / 12);
 
+  
+.sub-headings {
+  margin-top: 20px;
+  margin-bottom: 0;
+  padding-left: $gutter/2;
+}
+
   .grid-layout {
     display: grid;
     grid-template-columns: calc(100vw * 5 / 12) calc(100vw * 5 / 12);

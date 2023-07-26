@@ -1,0 +1,7 @@
+@use '../../variables' as variables;
+
+.product-page {
+    .ask-to-seller {
+        background-color: variables.$red;
+    }
+}

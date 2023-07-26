@@ -1,0 +1,56 @@
+@use "../../variables" as variables;
+
+$gutter: 16px;
+
+.product-page {
+  .stars {
+    color: variables.$yellow;
+  }
+
+  .summary {
+    .sub-headings,
+    div {
+      display: inline-block;
+    }
+    div {
+      margin-left: 10px;
+    }
+  }
+
+  .reviews {
+    background-color: variables.$grey;
+    margin: 15px 0;
+    border-radius: 16px;
+    padding: 10px;
+    max-width: calc(100vw * 10 / 12);
+
+    .review {
+      background-color: variables.$white;
+      border-radius: 16px;
+      padding: 10px;
+      margin: 5px 0;
+    }
+
+    .see-all-reviews-btn {
+      width: 100%;
+      padding: 10px;
+      background-color: variables.$yellow;
+      border: 1px solid variables.$yellow;
+      border-radius: 16px;
+      font-size: 1.3rem;
+      cursor: pointer;
+      &:hover {
+        filter: brightness(110%);
+      }
+    }
+
+    @media only screen and (max-width: 800px) {
+      max-width: calc(100vw - $gutter);
+      .see-all-reviews-btn {
+        padding: 8px;
+        border-radius: 12px;
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
