@@ -70,15 +70,21 @@
       padding: 3px 7px;
       grid-template-columns: 0.7fr 1.3fr;
       .price {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
       }
       .buttons {
-        .heart-icon,
-        .share-icon {
+        .heart-icon {
           vertical-align: middle;
-          font-size: 1.1rem;
+          font-size: 1.3rem;
           margin: 1em 0.3em;
         }
+        
+        .share-icon {
+          vertical-align: middle;
+          font-size: 1.3rem;
+          margin: 1em;
+        }
+
         button {
           padding: 0.3rem 0.7rem;
           border-radius: 6px;

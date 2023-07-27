@@ -7,8 +7,10 @@ import ImageContainer from "../components/ProductPage/ImageContainer";
 import ProductDetails from "../components/ProductPage/ProductDetails";
 import Details from "../components/ProductPage/Details";
 import Reviews from "../components/ProductPage/Reviews";
+import ReviewsPopup from "../components/ProductPage/ReviewsPopup";
 import Properties from "../components/ProductPage/Properties";
 import AskToSeller from "../components/ProductPage/AskToSeller";
+import AskToSellerPopup from "../components/ProductPage/AskToSellerPopup";
 
 const ProductPage = () => {
   // The pid will be used for fetch request
@@ -135,6 +137,9 @@ const ProductPage = () => {
     asktoSellerTotal: 672,
   };
 
+  const [showReviewsPopup, setShowReviewsPopup] = useState(false);
+  const [showAskToSEllerPopup, setAskToSellerPopup] = useState(false);
+
   return (
     <div className="product-page">
       <div className="grid-layout">
@@ -151,9 +156,33 @@ const ProductPage = () => {
           <Details details={PRODUCT.details} />
         </div>
       </div>
-      <Reviews reviews={PRODUCT.reviews} reviewMean={PRODUCT.reviewMean} />
+      {showReviewsPopup ? (
+        <ReviewsPopup
+          reviews={PRODUCT.reviews}
+          reviewMean={PRODUCT.reviewMean}
+          switchBtn={setShowReviewsPopup}
+        />
+      ) : (
+        <Reviews
+          reviews={PRODUCT.reviews}
+          reviewMean={PRODUCT.reviewMean}
+          switchBtn={setShowReviewsPopup}
+        />
+      )}
       <Properties properties={PRODUCT.properties} />
-      <AskToSeller questions={PRODUCT.askToSeller}  askToSellerTotal={PRODUCT.asktoSellerTotal}/>
+      {showAskToSEllerPopup ? (
+        <AskToSellerPopup
+          questions={PRODUCT.askToSeller}
+          askToSellerTotal={PRODUCT.asktoSellerTotal}
+          switchBtn={setAskToSellerPopup}
+        />
+      ) : (
+        <AskToSeller
+          questions={PRODUCT.askToSeller}
+          askToSellerTotal={PRODUCT.asktoSellerTotal}
+          switchBtn={setAskToSellerPopup}
+        />
+      )}
     </div>
   );
 };

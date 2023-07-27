@@ -1,0 +1,74 @@
+@use "../../variables" as variables;
+
+$gutter: 16px;
+
+.product-page {
+  .reviews-popup {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: variables.$popupBackground;
+    .stars {
+      color: variables.$yellow;
+    }
+
+    button {
+      position: fixed;
+      right: 15px;
+      top: 15px;
+      font-size: 1.3rem;
+      border: 1px solid variables.$yellow;
+      background-color: variables.$yellow;
+      padding: 6px 8px;
+      border-radius: 6px;
+    }
+
+    .summary {
+      .sub-headings,
+      div {
+        display: inline-block;
+      }
+      div {
+        margin-left: 10px;
+      }
+    }
+
+    .reviews {
+      background-color: variables.$grey;
+      width: calc(100vw * 10 / 12);
+      max-height: 80vh;
+      overflow: scroll;
+      margin-left: calc(100vw * 1 / 12);
+      border-radius: 16px;
+      padding: 10px;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+
+      .review {
+        background-color: variables.$white;
+        border-radius: 16px;
+        padding: 10px;
+        margin: 5px 0;
+      }
+
+      .see-all-reviews-btn {
+        width: 100%;
+        padding: 10px;
+        background-color: variables.$yellow;
+        border: 1px solid variables.$yellow;
+        border-radius: 16px;
+        font-size: 1.3rem;
+        cursor: pointer;
+        &:hover {
+          filter: brightness(110%);
+        }
+      }
+      @media only screen and (max-width: 800px) {
+        max-width: calc(100vw);
+      }
+    }
+  }
+}

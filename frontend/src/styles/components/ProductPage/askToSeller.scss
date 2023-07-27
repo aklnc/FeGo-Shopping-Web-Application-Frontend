@@ -1,7 +1,44 @@
-@use '../../variables' as variables;
+@use "../../variables" as variables;
+
+$gutter: 16px;
 
 .product-page {
-    .ask-to-seller {
-        background-color: variables.$red;
+  .ask-to-seller {
+    background-color: variables.$grey;
+    max-width: calc(100vw * 10 / 12);
+    margin: 15px 0;
+    border-radius: 16px;
+    padding: 10px;
+
+    .question-item {
+      background-color: variables.$white;
+      border-radius: 16px;
+      padding: 10px;
+      margin: 10px 0;
+      .question-head b {
+        color: variables.$red;
+      }
+      .question-head p {
+        padding-bottom: 5px;
+        border-bottom: 1px solid variables.$red;
+      }
     }
+
+    .see-all-questions-btn {
+      width: 100%;
+      padding: 10px;
+      background-color: variables.$yellow;
+      border: 1px solid variables.$yellow;
+      border-radius: 16px;
+      font-size: 1.3rem;
+      cursor: pointer;
+      &:hover {
+        filter: brightness(110%);
+      }
+    }
+
+    @media only screen and (max-width: 800px) {
+      max-width: calc(100vw - $gutter);
+    }
+  }
 }

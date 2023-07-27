@@ -1,0 +1,56 @@
+@use "../../variables" as variables;
+
+$gutter: 16px;
+
+.product-page {
+  .ask-to-seller-popup {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: variables.$popupBackground;
+
+    button {
+      position: fixed;
+      right: 15px;
+      top: 15px;
+      font-size: 1.3rem;
+      border: 1px solid variables.$yellow;
+      background-color: variables.$yellow;
+      padding: 6px 8px;
+      border-radius: 6px;
+    }
+
+    .ask-to-seller {
+      background-color: variables.$grey;
+      width: calc(100vw * 10 / 12);
+      max-height: 80vh;
+      overflow: scroll;
+      margin-left: calc(100vw * 1 / 12);
+      border-radius: 16px;
+      padding: 10px;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+
+      .question-item {
+        background-color: variables.$white;
+        border-radius: 16px;
+        padding: 10px;
+        margin: 10px 0;
+        .question-head b {
+          color: variables.$red;
+        }
+        .question-head p {
+          padding-bottom: 5px;
+          border-bottom: 1px solid variables.$red;
+        }
+      }
+
+      @media only screen and (max-width: 800px) {
+        max-width: calc(100vw);
+      }
+    }
+  }
+}

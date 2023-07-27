@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-import "../../styles/components/ProductPage/reviews.scss";
+import "../../styles/components/ProductPage/reviewsPopup.scss";
 
-const Reviews = (props: {
+const ReviewsPopup = (props: {
   reviews: { name: string; point: number; comment: string; date: string }[];
   reviewMean: number;
   switchBtn: React.Dispatch<React.SetStateAction<boolean>>;
@@ -41,36 +41,24 @@ const Reviews = (props: {
   };
 
   return (
-    <React.Fragment>
-      <div className="summary">
-        <h2 className="sub-headings">Reviews</h2>
-        <div>
-          {SetStars(props.reviewMean, "mean")} {props.reviewMean}
-        </div>
-      </div>
+    <div className="reviews-popup">
+      <button onClick={() => props.switchBtn(false)}>
+        <i className="fa-solid fa-xmark"></i>
+      </button>
       <div className="reviews">
-        {props.reviews.map(
-          (review, ind) =>
-            ind < 3 && (
-              <div key={`review_${ind}`} className="review">
-                <div className="head">
-                  {SetStars(review.point, "person")} {review.name}
-                </div>
-                <div className="comment">
-                  <p>{review.comment}</p>
-                </div>
-              </div>
-            )
-        )}
-        <button
-          className="see-all-reviews-btn"
-          onClick={() => props.switchBtn(true)}
-        >
-          See all reviews <i className="fa-solid fa-arrow-right"></i>
-        </button>
+        {props.reviews.map((review, ind) => (
+          <div key={`review_${ind}`} className="review">
+            <div className="head">
+              {SetStars(review.point, "person")} {review.name}
+            </div>
+            <div className="comment">
+              <p>{review.comment}</p>
+            </div>
+          </div>
+        ))}
       </div>
-    </React.Fragment>
+    </div>
   );
 };
 
-export default Reviews;
+export default ReviewsPopup;
