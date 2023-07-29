@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import "../styles/pages/homepage.scss";
 
 // Components
-import HomepageProduct from "../components/Product";
-import HomepageSeller from "../components/Seller";
+import HomepageProduct from "../components/Homepage/Product";
+import HomepageSeller from "../components/Homepage/Seller";
 
 const Homepage = () => {
   const FEATURED_PRODUCTS = [

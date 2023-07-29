@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import "../styles/components/Product.scss";
+import "../../styles/components/Homepage/Product.scss";
 
 const HomepageProduct = (props: {
   product: {

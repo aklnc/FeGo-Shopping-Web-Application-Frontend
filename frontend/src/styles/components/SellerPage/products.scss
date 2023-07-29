@@ -1,0 +1,59 @@
+@use "../../variables" as variables;
+
+$galleryItemMargin: 10px;
+$gutter: 16px;
+
+.seller-page {
+  .product-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: $galleryItemMargin;
+    padding: $galleryItemMargin;
+    border: 1px solid variables.$grey;
+    border-radius: 16px;
+    margin: 0 calc(100% / 12 - $galleryItemMargin);
+    width: calc(100% * 10 / 12);
+
+    .product {
+      border: 1px solid variables.$yellow;
+      padding: 5px;
+      img {
+        max-width: calc(100vw * 10 / 12 / 3 - 4 * $galleryItemMargin);
+      }
+
+      .sub-div {
+        font-size: 1.3rem;
+        p {
+          display: inline-block;
+          color: variables.$red;
+          margin-left: 15px;
+        }
+
+        a {
+          margin-top: 1rem;
+          float: right;
+          color: variables.$green;
+          padding: 5px;
+          text-decoration: none;
+          cursor: pointer;
+          &:hover {
+            filter: brightness(110%);
+          }
+        }
+      }
+    }
+
+    @media only screen and (max-width: 800px) {
+      margin: 0 $gutter;
+      width: calc(100% - 2 * $gutter);
+
+      .product {
+        img {
+          max-width: calc(100% - $gutter);
+          margin: $gutter / 2;
+        }
+      }
+    }
+  }
+}

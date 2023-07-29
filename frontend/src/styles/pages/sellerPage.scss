@@ -1,0 +1,95 @@
+@use "../variables" as variables;
+
+// Variables
+$searchBarPadding: 10px;
+$gutter: 16px;
+
+.seller-page {
+  .search-bar {
+    margin: 0 calc(100% / 12 - $searchBarPadding);
+    padding: $searchBarPadding;
+    width: calc(100% * 10 / 12);
+    text-align: center;
+    background-color: variables.$grey;
+
+    input {
+      margin: 0 10px;
+      border-radius: 12px;
+      border: 1px solid variables.$red !important;
+      padding: 5px;
+      width: calc(100% * 4 / 12);
+      &:focus {
+        outline: none;
+      }
+    }
+
+    i {
+      cursor: pointer;
+      color: variables.$red;
+    }
+  }
+
+  .categories {
+    margin: 15px calc(100% / 12 - $searchBarPadding);
+    padding: $searchBarPadding;
+    width: calc(100% * 10 / 12);
+    background-color: variables.$grey;
+
+    .category-list {
+      display: flex;
+      justify-content: space-around;
+      margin-block-start: 0;
+      margin-block-end: 0;
+      padding: 10px;
+
+      li {
+        list-style: none;
+        cursor: pointer;
+        background-color: variables.$yellow;
+        color: variables.$black !important;
+        padding: 12px;
+        border-radius: 10px;
+
+        &:hover {
+          color: variables.$yellow;
+        }
+      }
+
+      .active {
+        background-color: variables.$green;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    .search-bar {
+      margin: 0 $gutter;
+      width: calc(100% - 2 * $gutter);
+
+      input {
+        width: calc(100% * 3 / 5);
+      }
+    }
+
+    .categories {
+      margin: 10px $gutter;
+      width: calc(100% - 2 * $gutter);
+    }
+
+    .category-list {
+      display: block !important;
+      padding: 10px;
+      text-align: center;
+
+      li {
+        list-style: none;
+        font-size: 1.3rem;
+        padding: 12px;
+        margin: 5px;
+        margin-left: 5%;
+        width: 90%;
+        border-radius: 16px;
+      }
+    }
+  }
+}
