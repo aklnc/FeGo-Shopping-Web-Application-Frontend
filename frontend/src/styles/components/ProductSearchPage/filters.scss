@@ -1,0 +1,33 @@
+@use "../../variables" as variables;
+
+$gutter: 16px;
+
+.product-search-page {
+  .grid-container {
+    .filter {
+      margin-left: $gutter;
+      width: calc(100vw - 2 * $gutter);
+      h4 {
+        display: inline-block;
+        margin: 10px;
+      }
+      .color-list {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 5px;
+        .color {
+          margin: 3px;
+          padding: 15px;
+          height: auto;
+          border-radius: 50%;
+          text-align: center;
+        }
+      }
+
+      @media only screen and (max-width: 800px) {
+        margin-left: $gutter;
+        width: calc(100vw - 4 * $gutter);
+      }
+    }
+  }
+}

@@ -1,0 +1,85 @@
+@use "../variables" as variables;
+
+// Variables
+$searchBarPadding: 10px;
+$gutter: 16px;
+
+.product-search-page {
+  .search-bar {
+    margin: 0 calc(100vw / 12 - $searchBarPadding);
+    width: calc(100vw * 10 / 12);
+    padding: $searchBarPadding;
+    text-align: center;
+    background-color: variables.$grey;
+
+    input {
+      margin: 0 10px;
+      border-radius: 12px;
+      border: 1px solid variables.$red !important;
+      padding: 5px;
+      width: calc(100vw * 4 / 12);
+      &:focus {
+        outline: none;
+      }
+    }
+
+    i {
+      cursor: pointer;
+      color: variables.$red;
+    }
+  }
+
+  .filter-switch-btn {
+    visibility: hidden;
+  }
+
+  .grid-container {
+    margin-left:calc(100vw / 12);
+    width: calc(100vw * 10 / 12);
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+
+    .filters {
+      position: sticky;
+      margin-top: 10px;
+      background-color: variables.$grey;
+      width: calc(100vw * 2 / 12);
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    .search-bar {
+      margin-left: $gutter;
+      width: calc(100vw - 4 * $gutter);
+
+      input {
+        width: calc(100vw * 3 / 5);
+      }
+    }
+
+    .filter-switch-btn {
+      visibility: visible;
+      margin-top: 10px;
+      margin-left: $gutter;
+      width: calc(100vw - 4 * $gutter);
+      padding: 8px;
+      border: 1px solid variables.$yellow;
+      background-color: variables.$yellow;
+      font-size: 1.3rem;
+    }
+
+    .show-filters {
+      filter: brightness(110vw);
+    }
+
+    .grid-container {
+      display: block;
+      margin-left: $gutter;
+      width: calc(100vw - 4 * $gutter);
+
+      .filters {
+      width: calc(100vw - 4 * $gutter);
+      }
+    }
+  }
+}

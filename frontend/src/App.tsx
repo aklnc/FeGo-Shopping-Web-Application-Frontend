@@ -8,6 +8,7 @@ import Copyright from "./components/Copytight";
 import Homepage from "./pages/Homepage";
 import ProductPage from "./pages/ProductPage";
 import SellerPage from "./pages/SellerPage";
+import ProductSearchPage from "./pages/ProductSearchPage";
 
 // Importing master.scss
 import "./styles/gallery.scss";
@@ -20,6 +21,7 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/products" element={<ProductPage />} />
         <Route path="/sellers" element={<SellerPage />} />
+        <Route path="/search" element={<ProductSearchPage />} />
       </Routes>
       <Copyright />
     </Router>

@@ -15,6 +15,8 @@ import AskToSellerPopup from "../components/ProductPage/AskToSellerPopup";
 const ProductPage = () => {
   // The pid will be used for fetch request
   const [searchParams] = useSearchParams();
+
+  // For fetch request
   const pid = searchParams.get("id");
 
   const PRODUCT = {

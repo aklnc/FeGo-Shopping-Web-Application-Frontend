@@ -5,10 +5,7 @@ import "../../styles/components/Homepage/Product.scss";
 const HomepageProduct = (props: {
   product: {
     id: string;
-    category: string;
-    seller: string;
     name: string;
-    color?: string;
     price: number;
   };
 }) => {

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 
 import "../styles/pages/sellerPage.scss";
 
 import Products from "../components/SellerPage/Products";
 
 const SellerPage = () => {
+  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const sid = searchParams.get("id");
 
@@ -68,6 +69,20 @@ const SellerPage = () => {
     },
   ];
 
+  const [searchText, setSeachText] = useState("");
+
+  const SearchHandler = (
+    e:
+      | React.MouseEvent<HTMLElement, MouseEvent>
+      | React.KeyboardEvent<HTMLInputElement>
+  ) => {
+    e.preventDefault();
+
+    let url = `/search?seller=${SELLER.id}&text=` + encodeURIComponent(searchText);
+
+    navigate(url);
+  };
+
   const SelectCategoryHandler = (
     e: React.MouseEvent<HTMLLIElement, MouseEvent>,
     clickedCatagory: number
@@ -84,7 +99,17 @@ const SellerPage = () => {
   return (
     <div className="seller-page">
       <div className="search-bar">
-        <input type="text" placeholder={`Search in ${SELLER.name}`} />
+        <input
+          type="text"
+          placeholder={`Search in ${SELLER.name}`}
+          value={searchText}
+          onChange={(e) => {
+            setSeachText(e.currentTarget.value);
+          }}
+          onKeyDown={(e) => {
+            e.key === "Enter" && SearchHandler(e);
+          }}
+        />
         <i className="fa-solid fa-magnifying-glass"></i>
       </div>
 
