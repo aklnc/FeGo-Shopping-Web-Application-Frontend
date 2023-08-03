@@ -4,12 +4,56 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import "../styles/pages/productSearchPage.scss";
 
 import Filters from "../components/ProductSearchPage/Filters";
+import Product from "../components/ProductSearchPage/Product";
 
 const ProductSearchPage = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
   const [searchText, setSeachText] = useState("");
+
+  const PRODUCTS = [
+    {
+      id: "pid01",
+      name: "HUMMEL Nielsen - Unisex Beyaz Ayakkabı 207897",
+      price: 30.12,
+    },
+    {
+      id: "pid02",
+      name: "HUMMEL Nielsen - Unisex Beyaz Ayakkabı 207897",
+      price: 30.12,
+    },
+    {
+      id: "pid03",
+      name: "HUMMEL Nielsen - Unisex Beyaz Ayakkabı 207897",
+      price: 30.12,
+    },
+    {
+      id: "pid04",
+      name: "HUMMEL Nielsen - Unisex Beyaz Ayakkabı 207897",
+      price: 30.12,
+    },
+    {
+      id: "pid05",
+      name: "HUMMEL Nielsen - Unisex Beyaz Ayakkabı 207897",
+      price: 30.12,
+    },
+    {
+      id: "pid06",
+      name: "HUMMEL Nielsen - Unisex Beyaz Ayakkabı 207897",
+      price: 30.12,
+    },
+    {
+      id: "pid07",
+      name: "HUMMEL Nielsen - Unisex Beyaz Ayakkabı 207897",
+      price: 30.12,
+    },
+    {
+      id: "pid08",
+      name: "HUMMEL Nielsen - Unisex Beyaz Ayakkabı 207897",
+      price: 30.12,
+    },
+  ];
 
   const [FILTERS, SETFILTERS] = useState([
     {
@@ -22,9 +66,9 @@ const ProductSearchPage = () => {
     },
     {
       name: "style",
-      type: "radio",
+      type: "check-box",
       list: ["sneaker", "walking", "running", "casual", "outdoor"],
-      selected: ["white"],
+      selected: ["sneaker"],
       int0: 0,
       int1: 0,
     },
@@ -46,7 +90,7 @@ const ProductSearchPage = () => {
     },
   ]);
 
-  const [showFilters, setShowFilters] = useState(false);
+  const [showFilters, setShowFilters] = useState(true);
 
   useEffect(() => {
     if (searchParams.get("text")) {
@@ -87,19 +131,23 @@ const ProductSearchPage = () => {
           }}
         ></i>
       </div>
-      <button
-        className={
-          showFilters ? "show-filters filter-switch-btn" : "filter-switch-btn"
-        }
-        onClick={() => {
-          setShowFilters(!showFilters);
-        }}
-      >
-        {showFilters ? "Narrow Filters" : "Show Filters"}
-      </button>
-      <div className="grid-container">
-        <Filters filters={FILTERS} setFilters={SETFILTERS} />
-        <div className="products"></div>
+      <div className="filter-switch-btn">
+        <button
+          className={showFilters ? "show-filters" : "hide-filters"}
+          onClick={() => {
+            setShowFilters(!showFilters);
+          }}
+        >
+          {showFilters ? "Hide Filters" : "Show Filters"}
+        </button>
+      </div>
+      <div className="container">
+        {showFilters && <Filters filters={FILTERS} setFilters={SETFILTERS} />}
+        <div className="products gallery-3">
+          {PRODUCTS.map((product) => (
+            <Product key={`product ${product.id}`} product={product} />
+          ))}
+        </div>
       </div>
     </div>
   );

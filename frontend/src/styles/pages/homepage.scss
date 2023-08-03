@@ -6,7 +6,7 @@ $gutter: 16px;
 
 .homepage {
   .search-bar {
-    margin: 0 calc(100vw / 12 - $searchBarPadding);
+    margin: 0 calc(100vw / 12);
     padding: $searchBarPadding;
     width: calc(100vw * 10 / 12);
     text-align: center;

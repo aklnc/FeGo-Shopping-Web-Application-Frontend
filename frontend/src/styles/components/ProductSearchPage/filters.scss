@@ -3,30 +3,38 @@
 $gutter: 16px;
 
 .product-search-page {
-  .grid-container {
+  .container {
     .filter {
-      margin-left: $gutter;
-      width: calc(100vw - 2 * $gutter);
-      h4 {
-        display: inline-block;
-        margin: 10px;
-      }
       .color-list {
+        cursor: pointer;
         display: flex;
         flex-wrap: wrap;
         padding: 5px;
         .color {
           margin: 3px;
-          padding: 15px;
+          padding: 12px;
           height: auto;
           border-radius: 50%;
           text-align: center;
         }
       }
 
+      .check-item, .radio-item {
+        cursor: pointer;
+        font-size: 1.2rem;
+      }
+
+      .number-interval {
+        .input0, .input1 {
+          width: calc(50% - 10px);
+          margin: 0 5px;
+          font-size: 1.2rem;
+          border: 1px solid variables.$yellow;
+          border-radius: 8px;
+        }
+      }
+
       @media only screen and (max-width: 800px) {
-        margin-left: $gutter;
-        width: calc(100vw - 4 * $gutter);
       }
     }
   }

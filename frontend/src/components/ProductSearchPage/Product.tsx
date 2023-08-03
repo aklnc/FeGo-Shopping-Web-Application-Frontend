@@ -1,0 +1,29 @@
+import { Link } from "react-router-dom";
+
+import "../../styles/components/ProductSearchPage/Product.scss";
+
+const Product = (props: {
+  product: {
+    id: string;
+    name: string;
+    price: number;
+  };
+}) => {
+  return (
+    <Link to={`/products?id=${props.product.id}`}>
+      <div>
+        <img
+          src={`/assets/products/${props.product.id}.jpg`}
+          alt={props.product.name}
+          loading="lazy"
+        />
+        <p className="product-name">{props.product.name}</p>
+        <div>
+          <p className="product-price">$ {props.product.price} <i className="fa-solid fa-arrow-right"></i></p>
+        </div>
+      </div>
+    </Link>
+  );
+};
+
+export default Product;

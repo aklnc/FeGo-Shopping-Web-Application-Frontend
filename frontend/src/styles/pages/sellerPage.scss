@@ -6,7 +6,7 @@ $gutter: 16px;
 
 .seller-page {
   .search-bar {
-    margin: 0 calc(100% / 12 - $searchBarPadding);
+    margin: 0 calc(100% / 12);
     padding: $searchBarPadding;
     width: calc(100% * 10 / 12);
     text-align: center;

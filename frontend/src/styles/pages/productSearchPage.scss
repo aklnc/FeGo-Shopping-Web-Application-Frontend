@@ -3,10 +3,11 @@
 // Variables
 $searchBarPadding: 10px;
 $gutter: 16px;
+$padding: 5px;
 
 .product-search-page {
   .search-bar {
-    margin: 0 calc(100vw / 12 - $searchBarPadding);
+    margin: 0 calc(100vw / 12);
     width: calc(100vw * 10 / 12);
     padding: $searchBarPadding;
     text-align: center;
@@ -30,27 +31,35 @@ $gutter: 16px;
   }
 
   .filter-switch-btn {
-    visibility: hidden;
+    display: none;
   }
 
-  .grid-container {
-    margin-left:calc(100vw / 12);
-    width: calc(100vw * 10 / 12);
+  .container {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 2fr;
+    padding: $padding;
 
     .filters {
-      position: sticky;
-      margin-top: 10px;
+      max-width: calc(100vw * 2 / 12);
+      height: fit-content;
+      margin-left: calc(100vw / 12);
       background-color: variables.$grey;
-      width: calc(100vw * 2 / 12);
+      padding: 15px;
+      position: -webkit-fixed;
+      position: sticky;
+      top: 5%;
+    }
+
+    .products {
+      max-width: calc(100vw * 8 / 12);
+      padding: 15px;
     }
   }
 
   @media only screen and (max-width: 800px) {
     .search-bar {
-      margin-left: $gutter;
-      width: calc(100vw - 4 * $gutter);
+      margin: 0 $gutter;
+      width: calc(100vw - 2 * $gutter);
 
       input {
         width: calc(100vw * 3 / 5);
@@ -58,27 +67,33 @@ $gutter: 16px;
     }
 
     .filter-switch-btn {
-      visibility: visible;
-      margin-top: 10px;
-      margin-left: $gutter;
-      width: calc(100vw - 4 * $gutter);
-      padding: 8px;
-      border: 1px solid variables.$yellow;
-      background-color: variables.$yellow;
-      font-size: 1.3rem;
+      display: inline-block;
+      margin: 0 $gutter;
+      width: calc(100vw - 2 * $gutter);
+      padding: 5px;
+
+      button {
+        width: 100%;
+        padding: 5px;
+        font-size: 1.1rem;
+        border: 1px solid variables.$yellow;
+        background-color: variables.$yellow;
+      }
     }
 
-    .show-filters {
-      filter: brightness(110vw);
-    }
-
-    .grid-container {
-      display: block;
-      margin-left: $gutter;
-      width: calc(100vw - 4 * $gutter);
+    .container {
+      display: grid;
+      grid-template-columns: 1fr;
 
       .filters {
-      width: calc(100vw - 4 * $gutter);
+        position: static;
+        margin: 0 $gutter;
+        max-width: calc(100vw - 2 * $gutter);
+      }
+
+      .products {
+        margin: 0 $gutter;
+        max-width: calc(100vw - 2 * $gutter);
       }
     }
   }
